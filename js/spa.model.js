@@ -17,7 +17,8 @@ spa.model = (function () {
     },
 
     isFakeData = true,
-    personProto, makePerson, people, initModule;
+    personProto, makeCid, clearPeopleDb, completeLogin,
+    makePerson, removePerson, people, initModule;
 
   personProto = {
     get_is_user : function () {
@@ -147,6 +148,7 @@ spa.model = (function () {
       id : configMap.anon_id,
       name : 'anonymous'
     });
+    stateMap.user = stateMap.anon_user;
 
     if ( isFakeData ) {
       people_list = spa.fake.getPeopleList();
