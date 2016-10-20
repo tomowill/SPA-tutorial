@@ -57,7 +57,7 @@ spa.util_b = (function () {
 
   getEmSize = function ( elem ){
     return Number(
-      getComputedStyle( elem, '' ).fontsize.match(/\d*\.\d*/)[0]
+      getComputedStyle( elem, '' ).fontSize.match(/\d*\.?\d*/)[0]
     );
   };
 
