@@ -48,8 +48,8 @@ spa.model = (function () {
   completeLogin = function( user_list ){
     var user_map = user_list[0];
     delete stateMap.people_cid_map[ user_map.cid ];
-    stateMap.user_cid = user_map.id;
-    stateMap.user_id = user_map._id;
+    stateMap.user.cid = user_map.id;
+    stateMap.user.id = user_map._id;
     stateMap.user.css_map = user_map.css_map;
     stateMap.people_cid_map[ user_map._id ] = stateMap.user;
     chat.join();
@@ -155,6 +155,7 @@ spa.model = (function () {
 
     _leave_chat = function () {
       var sio = isFakeData ? spa.fake.mockSio : spa.data.setSio();
+      chatee = null;
       stateMap.is_connected = false;
       if ( sio ) { sio.emit( 'leavechat' ); }
     };
